@@ -10,7 +10,8 @@ class App extends Component {
       { id: "sdv", name: "Manu", age: 29 },
       { id: "sssdv", name: "Anna", age: 29 }
     ],
-    showPersons: false
+    showPersons: false,
+    input: ""
   };
 
   inputHandler = event => {
