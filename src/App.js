@@ -14,7 +14,7 @@ class App extends Component {
   };
 
   inputHandler = event => {
-    this.setState({ input: event.target.value });
+    this.setState({ input: event.input.value });
   };
 
   nameChangeHandler = (id, event) => {
@@ -85,3 +85,5 @@ class App extends Component {
 }
 
 export default App;
+
+// 6. 72. Debugging React Apps
