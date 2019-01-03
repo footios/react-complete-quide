@@ -15,6 +15,9 @@ const persons = props =>
   });
 
 export default persons;
-// In the bellow case you should reverse the order of the arguments in
-//nameChangeHandler = (id, event) => {...
+// In the bellow case you should have 'event' at the begging of the arguments in
+//nameChangeHandler = (event, id) => {...
+// case:
 // changed={event => props.changed(event, person.id)}
+// but in with 'bind' it 'even' must be the last argument
+// nameChangeHandler = (id, event) => {

@@ -3,12 +3,13 @@ import "./App.css";
 import classes from "./App.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
+
 class App extends Component {
   state = {
     persons: [
       { id: "anything", name: "Max", age: 28 },
-      { id: "sdv", name: "Manu", age: 29 },
-      { id: "sssdv", name: "Anna", age: 29 }
+      { id: "sdo", name: "Manu", age: 29 },
+      { id: "iitb", name: "Anna", age: 29 }
     ],
     showPersons: false,
     input: ""
@@ -54,6 +55,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <Cockpit
+          title={this.props.appTitle}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           clicked={this.togglePersonHandler}
