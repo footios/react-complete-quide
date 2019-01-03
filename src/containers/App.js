@@ -5,16 +5,27 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: "anything", name: "Max", age: 28 },
-      { id: "sdo", name: "Manu", age: 29 },
-      { id: "iitb", name: "Anna", age: 29 }
-    ],
-    showPersons: false,
-    input: ""
-  };
+  constructor(props) {
+    super(props);
+    console.log("[App.js] inside Constuctor", props);
+    this.state = {
+      persons: [
+        { id: "anything", name: "Max", age: 28 },
+        { id: "sdo", name: "Manu", age: 29 },
+        { id: "iitb", name: "Anna", age: 29 }
+      ],
+      showPersons: false,
+      input: ""
+    };
+  }
 
+  componentWillMount() {
+    console.log("[App.js] Inside componentWillMount");
+  }
+
+  componentDidMount() {
+    console.log("[App.js] Inside componentDidMount");
+  }
   inputHandler = event => {
     this.setState({ input: event.input.value });
   };
@@ -40,6 +51,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("[App.js] Inside Render");
     let persons = null;
 
     if (this.state.showPersons) {
@@ -68,5 +80,5 @@ class App extends Component {
 
 export default App;
 
-// Diving Deeper into Components & React Internals
+//
 //
