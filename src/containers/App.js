@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import "./App.css";
 import classes from "./App.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 
-class App extends Component {
+class App extends PureComponent {
+  // use it when updates might not required,
+  // because it checks allways if props changed
   constructor(props) {
     super(props);
     console.log("[App.js] inside Constuctor", props);
@@ -26,8 +28,34 @@ class App extends Component {
   componentDidMount() {
     console.log("[App.js] Inside componentDidMount");
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log(
+  //     "[UPDATE App.js] Inside shouldComponentUpdate",
+  //     nextProps,
+  //     nextState
+  //   );
+  //   return (
+  //     nextProps.persons !== this.props.persons ||
+  //     nextProps.showPersons !== this.props.showPersons ||
+  //     nextProps.input !== this.props.input
+  //   );
+  // }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log(
+      "[UPDATE App.js] Inside componentWillUpdate",
+      nextProps,
+      nextState
+    );
+  }
+
+  componentDidUpdate() {
+    console.log("UPDATE App.js] Inside componentDidUpdate");
+  }
+
   inputHandler = event => {
-    this.setState({ input: event.input.value });
+    this.setState({ input: event.target.value });
   };
 
   nameChangeHandler = (id, event) => {
@@ -66,6 +94,11 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
+        <button
+          onClick={() => {
+            this.setState({ showPersons: true });
+          }}
+        />
         <Cockpit
           title={this.props.appTitle}
           showPersons={this.state.showPersons}
