@@ -26,3 +26,5 @@ const withClass = (WrappedComponent, className) => {
 };
 
 export default withClass;
+
+// what to do when a state update depens on the old state
