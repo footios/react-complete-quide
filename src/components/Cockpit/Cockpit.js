@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Cockpit.css";
-import Aux from "../../hoc/Aux";
+import Eject from "../../hoc/Eject";
 
 const cockpit = props => {
   let assignedClasses = [];
@@ -20,13 +20,13 @@ const cockpit = props => {
   }
 
   return (
-    <Aux>
+    <Eject>
       <h1>{props.title}</h1>
       <p className={assignedClasses.join(" ")}>React app</p>
       <button onClick={props.clicked} className={buttonClass}>
         Toggle Persons
       </button>
-    </Aux>
+    </Eject>
   );
 };
 
