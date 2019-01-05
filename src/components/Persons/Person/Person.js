@@ -16,6 +16,7 @@ class Person extends Component {
 
   componentDidMount() {
     console.log("[Person.js] Inside componentDidMount");
+    if (this.props.position === 0) this.element.focus();
   }
   render() {
     return (
@@ -25,6 +26,7 @@ class Person extends Component {
         </p>
         <p>{this.props.children}</p>
         <input
+          ref={inp => (this.element = inp)}
           type="text"
           onChange={this.props.changed}
           value={this.props.name}
