@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import classes from "./Person.css";
 import withClass_2 from "../../../hoc/withClass_2";
 import Eject from "../../../hoc/Eject";
+import PropTypes from "prop-types";
 
 class Person extends Component {
   constructor(props) {
@@ -32,5 +33,13 @@ class Person extends Component {
     );
   }
 }
+
+// Basically editing this class after it was defined
+Person.propTypes = {
+  click: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  changed: PropTypes.func.isRequired
+};
 
 export default withClass_2(Person, classes.Person);

@@ -14,7 +14,7 @@ class App extends PureComponent {
     console.log("[App.js] inside Constuctor", props);
     this.state = {
       persons: [
-        { id: "anything", name: "Max", age: 28 },
+        { id: "anything", name: "Max", age: "28" },
         { id: "sdo", name: "Manu", age: 29 },
         { id: "iitb", name: "Anna", age: 29 }
       ],
@@ -69,7 +69,9 @@ class App extends PureComponent {
     persons[personIndex] = person;
     this.setState({ persons });
   };
-
+  // Handling props is useful if you write conponent that are
+  // going to be used by other devs.
+  // You can restrict the types and values for your props
   togglePersonHandler = () => {
     const doesShow = this.state.showPersons;
     this.setState((prevState, props) => {
@@ -115,6 +117,3 @@ class App extends PureComponent {
 }
 
 export default withClass_2(App, classes.App);
-
-//
-//
