@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classes from "./Person.css";
-import WithClass from "../../../hoc/WithClass";
+import withClass_2 from "../../../hoc/withClass_2";
+import Eject from "../../../hoc/Eject";
 
 class Person extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Person extends Component {
   }
   render() {
     return (
-      <WithClass classes={classes.Person}>
+      <Eject>
         <p onClick={this.props.click}>
           I'm {this.props.name}. I'm {this.props.age}
         </p>
@@ -27,9 +28,9 @@ class Person extends Component {
           onChange={this.props.changed}
           value={this.props.name}
         />
-      </WithClass>
+      </Eject>
     );
   }
 }
 
-export default Person;
+export default withClass_2(Person, classes.Person);

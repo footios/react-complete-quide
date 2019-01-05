@@ -3,8 +3,9 @@ import "./App.css";
 import classes from "./App.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
-import WithClass from "../hoc/WithClass";
-
+import Eject from "../hoc/Eject";
+import withClass_2 from "../hoc/withClass_2"; // no capital letter, it's not a component
+//                                             it doesn't return JSX
 class App extends PureComponent {
   // use it when updates might not required,
   // because it checks allways if props changed
@@ -94,7 +95,7 @@ class App extends PureComponent {
     }
 
     return (
-      <WithClass classes={classes.App}>
+      <Eject classes={classes.App}>
         <Cockpit
           title={this.props.appTitle}
           showPersons={this.state.showPersons}
@@ -102,12 +103,12 @@ class App extends PureComponent {
           clicked={this.togglePersonHandler}
         />
         {persons}
-      </WithClass>
+      </Eject>
     );
   }
 }
 
-export default App;
+export default withClass_2(App, classes.App);
 
 //
 //
