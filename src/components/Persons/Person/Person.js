@@ -8,6 +8,7 @@ class Person extends Component {
   constructor(props) {
     super(props);
     console.log("[Person.js] inside Constuctor", props);
+    this.inputElement = React.createRef(); // React 16.3
   }
 
   componentWillMount() {
@@ -16,7 +17,12 @@ class Person extends Component {
 
   componentDidMount() {
     console.log("[Person.js] Inside componentDidMount");
-    if (this.props.position === 0) this.element.focus();
+    //this.inputElement.current.focus();
+  }
+
+  focus() {
+    this.inputElement.current.focus(); // with React.createRef,
+    // add current
   }
   render() {
     return (
@@ -26,7 +32,8 @@ class Person extends Component {
         </p>
         <p>{this.props.children}</p>
         <input
-          ref={inp => (this.element = inp)}
+          // ref={inp => (this.element = inp)}
+          ref={this.inputElement}
           type="text"
           onChange={this.props.changed}
           value={this.props.name}
@@ -44,4 +51,6 @@ Person.propTypes = {
   changed: PropTypes.func.isRequired
 };
 
+// ref is not working when you wrap your component with a hoc
+// but, you can use a forward ref
 export default withClass_2(Person, classes.Person);
