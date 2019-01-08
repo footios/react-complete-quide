@@ -6,6 +6,9 @@ import Cockpit from "../components/Cockpit/Cockpit";
 import Eject from "../hoc/Eject";
 import withClass_2 from "../hoc/withClass_2"; // no capital letter, it's not a component
 //                                             it doesn't return JSX
+
+const AuthContext = React.createContext();
+
 class App extends PureComponent {
   // use it when updates might not required,
   // because it checks allways if props changed
@@ -20,7 +23,8 @@ class App extends PureComponent {
       ],
       showPersons: false,
       input: "",
-      toggleClicked: 0
+      toggleClicked: 0,
+      authendicated: false
     };
   }
 
@@ -88,6 +92,10 @@ class App extends PureComponent {
     this.setState({ persons });
   };
 
+  loginHandler = () => {
+    this.setState({ authendicated: true });
+  };
+
   render() {
     console.log("[App.js] Inside Render");
     let persons = null;
@@ -98,6 +106,7 @@ class App extends PureComponent {
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.nameChangeHandler}
+          isAuthenticated={this.state.authendicated}
         />
       );
     }
@@ -108,6 +117,7 @@ class App extends PureComponent {
           title={this.props.appTitle}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
+          login={this.loginHandler}
           clicked={this.togglePersonHandler}
         />
         {persons}

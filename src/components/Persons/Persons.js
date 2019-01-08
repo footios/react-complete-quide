@@ -54,6 +54,7 @@ class Persons extends Component {
           name={person.name}
           age={person.age}
           ref={this.lastPersonRef}
+          authendicated={this.props.isAuthenticated}
           click={() => this.props.clicked(index)}
           changed={this.props.changed.bind(this, person.id)}
         />

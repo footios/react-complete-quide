@@ -27,12 +27,13 @@ class Person extends Component {
   render() {
     return (
       <Eject>
+        {this.props.authendicated ? <p>I'm authendicated</p> : null}
         <p onClick={this.props.click}>
           I'm {this.props.name}. I'm {this.props.age}
         </p>
         <p>{this.props.children}</p>
         <input
-          // ref={inp => (this.element = inp)}
+          // ref={inp => (this.element = inp) }
           ref={this.inputElement}
           type="text"
           onChange={this.props.changed}
